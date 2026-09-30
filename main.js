@@ -1,34 +1,15 @@
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#primary-nav');
-menu?.addEventListener('click', () => {
-  const expanded = menu.getAttribute('aria-expanded') === 'true';
-  menu.setAttribute('aria-expanded', String(!expanded));
-  menu.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  nav?.classList.toggle('open', !expanded);
-});
-nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menu?.setAttribute('aria-expanded', 'false');
-  menu?.setAttribute('aria-label', 'Open navigation');
-}));
-const releases = window.MOTA_DOWNLOADS || {};
-for (const [platform, id] of [['android', 'android-download'], ['ios', 'ios-download']]) {
-  const element = document.getElementById(id);
-  const url = releases[platform];
-  if (element && /^https:\/\//i.test(url || '')) {
-    element.href = url;
-    element.classList.remove('unavailable');
-    element.removeAttribute('aria-disabled');
-    const state = element.querySelector('em');
-    if (state) state.textContent = platform === 'android' ? 'Official Android release' : 'Official iPhone release';
-  } else {
-    element?.addEventListener('click', event => event.preventDefault());
-  }
-}
+menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.classList.toggle('open', open); });
+nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('open'); menu?.setAttribute('aria-expanded', 'false'); menu?.setAttribute('aria-label', 'Open navigation'); }));
+const about = document.querySelector('.nav-dropdown > button');
+about?.addEventListener('click', () => { const open = about.getAttribute('aria-expanded') !== 'true'; about.setAttribute('aria-expanded', String(open)); document.getElementById('about-menu').hidden = !open; });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { nav?.classList.remove('open'); menu?.setAttribute('aria-expanded', 'false'); about?.setAttribute('aria-expanded', 'false'); document.getElementById('about-menu').hidden = true; } });
+document.querySelectorAll('[data-carousel]').forEach(carousel => { const track = carousel.querySelector('.card-track'); const move = direction => track.scrollBy({ left: direction * (track.firstElementChild.getBoundingClientRect().width + 18), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); carousel.querySelector('[data-prev]').addEventListener('click', () => move(-1)); carousel.querySelector('[data-next]').addEventListener('click', () => move(1)); });
+document.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-role]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); }); const rider = button.dataset.role === 'rider'; document.getElementById('join-kicker').textContent = rider ? 'RIDER REGISTRATION' : 'DRIVER REGISTRATION'; document.getElementById('join-fee').innerHTML = rider ? '<strong>Free</strong>' : 'RWF <strong>5,000</strong>'; document.getElementById('join-description').textContent = rider ? 'Riders do not pay a registration fee.' : 'Registration fee for a driver account.'; document.getElementById('join-steps').innerHTML = rider ? '<li>Register your account</li><li>Verify your phone number</li><li>Submit your personal documents</li><li>Complete account verification</li>' : '<li>Register your account</li><li>Verify your phone number</li><li>Submit personal & vehicle documents</li><li>Complete payment and account review</li>'; }));
+document.querySelectorAll('[data-map]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-map]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); }); const driver = button.dataset.map === 'driver'; document.getElementById('map-title').textContent = driver ? 'Review your ride request' : 'Choose your pickup'; document.getElementById('map-description').textContent = driver ? 'See pickup and destination details in your driver account.' : 'Set your destination and request a car or moto.'; }));
+let toastTimer;
+const showToast = message => { const toast = document.querySelector('.toast'); toast.textContent = message; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toast.hidden = true; }, 6000); };
+for (const [platform, id] of [['android', 'android-download'], ['ios', 'ios-download']]) { const element = document.getElementById(id); const url = (window.MOTA_DOWNLOADS || {})[platform]; if (/^https:\/\//i.test(url || '')) { element.href = url; element.classList.remove('unavailable'); element.removeAttribute('aria-disabled'); element.querySelector('em').textContent = platform === 'android' ? 'Official Android release' : 'Official iPhone release'; } else element.addEventListener('click', event => { event.preventDefault(); showToast('The official ' + (platform === 'android' ? 'Android' : 'iPhone') + ' download link is not available yet. Please check back soon.'); }); }
+document.querySelectorAll('[data-role], [data-map]').forEach(b => b.setAttribute('aria-pressed', String(b.classList.contains('active'))));
 document.getElementById('year').textContent = new Date().getFullYear();
-if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); } });
-  }, { threshold: .15 });
-  document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
-} else document.querySelectorAll('.reveal').forEach(element => element.classList.add('in-view'));
