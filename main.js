@@ -1,12 +1,34 @@
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#primary-nav');
-menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.classList.toggle('open', open); });
-nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('open'); menu?.setAttribute('aria-expanded', 'false'); menu?.setAttribute('aria-label', 'Open navigation'); }));
 const about = document.querySelector('.nav-dropdown > button');
-about?.addEventListener('click', () => { const open = about.getAttribute('aria-expanded') !== 'true'; about.setAttribute('aria-expanded', String(open)); document.getElementById('about-menu').hidden = !open; });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { nav?.classList.remove('open'); menu?.setAttribute('aria-expanded', 'false'); about?.setAttribute('aria-expanded', 'false'); document.getElementById('about-menu').hidden = true; } });
+const closeAbout = () => { about?.setAttribute('aria-expanded', 'false'); const panel = document.getElementById('about-menu'); if (panel) panel.hidden = true; };
+const closeNavigation = () => { nav?.classList.remove('open'); menu?.setAttribute('aria-expanded', 'false'); menu?.setAttribute('aria-label', 'Open navigation'); closeAbout(); };
+menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; if (!open) { closeNavigation(); return; } menu.setAttribute('aria-expanded', 'true'); menu.setAttribute('aria-label', 'Close navigation'); nav?.classList.add('open'); });
+nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+about?.addEventListener('click', () => { const open = about.getAttribute('aria-expanded') !== 'true'; about.setAttribute('aria-expanded', String(open)); const panel = document.getElementById('about-menu'); if (panel) panel.hidden = !open; });
+document.addEventListener('keydown', event => { if (event.key === 'Escape') { const focusMenu = menu?.getAttribute('aria-expanded') === 'true'; const focusAbout = about?.getAttribute('aria-expanded') === 'true'; closeNavigation(); if (focusMenu) menu.focus(); else if (focusAbout) about.focus(); } });
+document.addEventListener('click', event => { if (!event.target.closest('.nav-shell')) closeNavigation(); });
 document.querySelectorAll('[data-carousel]').forEach(carousel => { const track = carousel.querySelector('.card-track'); const move = direction => track.scrollBy({ left: direction * (track.firstElementChild.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).gap) || 0)), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); carousel.querySelector('[data-prev]').addEventListener('click', () => move(-1)); carousel.querySelector('[data-next]').addEventListener('click', () => move(1)); });
-document.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-role]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); }); const rider = button.dataset.role === 'rider'; document.getElementById('join-kicker').textContent = rider ? 'RIDER REGISTRATION' : 'DRIVER REGISTRATION'; document.getElementById('join-fee').innerHTML = rider ? '<strong>Free</strong>' : 'RWF <strong>5,000</strong>'; document.getElementById('join-description').textContent = rider ? 'Riders do not pay a registration fee.' : 'Registration fee for a driver account.'; document.getElementById('join-steps').innerHTML = rider ? '<li>Register your account</li><li>Verify your phone number</li><li>Submit your personal documents</li><li>Complete account verification</li>' : '<li>Register your account</li><li>Verify your phone number</li><li>Submit personal & vehicle documents</li><li>Complete payment and account review</li>'; }));
+const accountGuides = {
+  rider: { title: 'Your next journey starts here.', intro: 'Create your rider account and complete your personal verification. Riders pay no registration fee.', fee: '<strong>Free</strong>', description: 'No registration fee for riders.', steps: ['Register your rider account', 'Verify your phone number', 'Submit your personal identity documents', 'Complete verification to continue to your home screen'], documents: ['National ID or passport and identity photos', 'A current selfie', 'Personal details requested in the app'] },
+  driver: { title: 'Start your next chapter with MOTA.', intro: 'Bring your driving experience. Prepare your personal and vehicle documents to complete your account.', fee: 'RWF <strong>5,000</strong>', description: 'Registration fee for a driver account.', steps: ['Register your driver account', 'Verify your phone number', 'Submit personal and vehicle documents', 'Pay the registration fee and complete verification'], documents: ['National ID or passport and identity photos', 'A current selfie', 'Valid driving licence', 'Vehicle registration, insurance and technical inspection documents', 'Document expiry dates requested in the app', 'Vocational card, if provided'] },
+};
+const renderAccountGuide = role => {
+  const guide = accountGuides[role]; if (!guide) return;
+  document.querySelectorAll('[data-role]').forEach(button => { const selected = button.dataset.role === role; button.classList.toggle('active', selected); button.setAttribute('aria-pressed', String(selected)); });
+  document.getElementById('join-title').textContent = guide.title;
+  document.getElementById('join-intro').textContent = guide.intro;
+  document.getElementById('join-kicker').textContent = role.toUpperCase() + ' REGISTRATION';
+  document.getElementById('join-fee').innerHTML = guide.fee;
+  document.getElementById('join-description').textContent = guide.description;
+  for (const [id, items] of [['join-steps', guide.steps], ['join-documents', guide.documents]]) {
+    const list = document.getElementById(id); list.replaceChildren();
+    items.forEach(text => { const item = document.createElement('li'); item.textContent = text; list.append(item); });
+  }
+  document.getElementById('join-cta').textContent = 'Start as a ' + role + ' →';
+};
+document.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => renderAccountGuide(button.dataset.role)));
+renderAccountGuide(document.querySelector('[data-role].active')?.dataset.role || 'driver');
 document.querySelectorAll('[data-map]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-map]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); }); const driver = button.dataset.map === 'driver'; document.getElementById('map-title').textContent = driver ? 'Review your ride request' : 'Choose your pickup'; document.getElementById('map-description').textContent = driver ? 'See pickup and destination details in your driver account.' : 'Set your destination and request a car or moto.'; }));
 let toastTimer;
 const showToast = message => { const toast = document.querySelector('.toast'); toast.textContent = message; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toast.hidden = true; }, 6000); };
