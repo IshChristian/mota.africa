@@ -107,3 +107,10 @@
   .service-card { transition: none; }
   .service-card:hover { transform: none; }
 }
+
+/* Readable help controls and progressive-enhancement states. */
+[hidden]{display:none!important}
+.faq-heading,.faq-tools,.faq-empty{max-width:900px;margin-left:auto;margin-right:auto}
+.faq-heading{text-align:center}.faq-heading>p{color:#666;font-size:18px;line-height:1.6}
+.faq-tools{margin-top:32px;margin-bottom:24px}.faq-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px}.faq-filters button{min-height:48px;border:1px solid #ddd;border-radius:30px;background:white;color:#141414;padding:12px 22px;font-weight:700}.faq-filters button.active{background:#141414;color:white;border-color:#141414}.faq-tools label{display:block;font-size:14px;font-weight:700;margin-bottom:10px}.faq-tools input{width:100%;min-height:54px;font:inherit;border:1px solid #ccc;border-radius:12px;background:white;color:#141414;padding:14px 18px}.faq-tools input:focus-visible{outline:3px solid #dc2030;outline-offset:3px}.faq-tools>p{font-size:13px;color:#666;margin:12px 0}.faq-list{max-width:900px}.faq-list summary{min-height:60px;gap:20px;line-height:1.5}.faq-list p{font-size:16px;line-height:1.75}.faq-action{display:inline-block;font-size:15px;font-weight:700;color:#bc1826;margin:0 24px 24px}.faq-empty{padding:24px;background:#fff;border-radius:16px;line-height:1.6}
+@media(max-width:480px){.faq-list summary{font-size:17px}.faq-list p{font-size:15px}.faq-filters{justify-content:flex-start}.faq-filters button{padding:12px 16px;font-size:14px}}

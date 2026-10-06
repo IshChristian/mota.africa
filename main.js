@@ -92,3 +92,32 @@ document.querySelectorAll('[data-wallet]').forEach(button => button.addEventList
   });
   animateSwap(rows);
 }));
+
+// Progressive enhancement: questions stay visible when JavaScript is unavailable.
+const faqItems = Array.from(document.querySelectorAll('[data-faq-topic]'));
+const faqSearch = document.getElementById('faq-search');
+let faqCategory = 'all';
+const filterQuestions = () => {
+  const term = (faqSearch?.value || '').trim().toLowerCase();
+  let visible = 0;
+  faqItems.forEach(item => {
+    const matchesCategory = faqCategory === 'all' || item.dataset.faqTopic === 'shared' || item.dataset.faqTopic === faqCategory;
+    const matches = matchesCategory && item.textContent.toLowerCase().includes(term);
+    item.hidden = !matches; if (matches) visible++;
+  });
+  document.getElementById('faq-count').textContent = visible + (visible === 1 ? ' question' : ' questions');
+  document.getElementById('faq-empty').hidden = visible > 0;
+};
+if (faqItems.length) {
+  document.getElementById('faq-tools').hidden = false;
+  document.querySelectorAll('[data-faq-filter]').forEach(button => button.addEventListener('click', () => {
+    faqCategory = button.dataset.faqFilter;
+    document.querySelectorAll('[data-faq-filter]').forEach(item => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+    filterQuestions();
+  }));
+  faqSearch?.addEventListener('input', filterQuestions);
+  filterQuestions();
+}
+const releases = ['android', 'ios'].filter(platform => /^https:\/\//i.test((window.MOTA_DOWNLOADS || {})[platform] || ''));
+const releaseStatus = document.getElementById('release-status');
+if (releaseStatus && releases.length) releaseStatus.textContent = releases.length === 2 ? 'Official Android and iPhone links are available below.' : 'The official ' + (releases[0] === 'android' ? 'Android' : 'iPhone') + ' link is available below. The other platform is still pending.';
