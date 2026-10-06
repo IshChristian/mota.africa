@@ -41,3 +41,7 @@ These are prominent references, not a verified ranking of landing-page popularit
 The new hero includes an illustrative car/moto selector. Rider and driver links select the appropriate registration guide. The service grid links to ride guidance, driver onboarding, driver wallet and support. A practical journey checklist replaces the decorative impact grid. The page remains informational: it does not accept bookings, quote fares or promise emergency response.
 
 `redesign.css` isolates this layout from the existing app illustration styles. Breakpoints adapt the hero and service grid, and expand mobile navigation to tablet widths. Reduced-motion preferences remain supported. Official release URLs must still be supplied in `config.js`; pending download status is explicit.
+
+## Help discovery
+
+The FAQ supports rider/driver categories and keyword searches across questions and answers. Shared account questions appear in both categories. With JavaScript unavailable, all questions remain visible. A count and empty state explain search results. Footer audience links select the matching signup guide. The download summary reflects configured HTTPS release URLs instead of always claiming both platforms are pending.
