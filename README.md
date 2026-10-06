@@ -1,6 +1,6 @@
 # MOTA landing page
 
-A responsive static site for MOTA riders and drivers. The section layout follows the supplied Spiro visual references, with original MOTA copy, illustrative app graphics, and an original generated motorcycle hero image.
+A responsive static site for MOTA riders and drivers. The visual direction combines the earlier supplied Spiro references with mobility landing-page patterns, with original MOTA copy, illustrative app graphics, and an original generated motorcycle hero image.
 
 ## Run locally
 
@@ -27,3 +27,17 @@ The page includes responsive navigation, account tabs, map views, horizontally s
 The rider and driver selector updates the introduction, fee, steps, document checklist and call to action together. The checklist is preparation guidance; the app remains the source of required account fields. Navigation closes consistently on Escape, outside clicks and section links. Escape returns focus to the relevant navigation control.
 
 Run `node --check main.js` and `node tests/landing-interactions.test.cjs`. The interaction checks use a simulated DOM, not a browser or mobile device.
+
+## Mobility landing redesign
+
+Design research used the official Uber, Bolt and Revolut homepages on 6 October 2026:
+
+- https://www.uber.com/us/en/: distinct rider/driver paths, journey explanation and app conversion.
+- https://bolt.eu/en/: service cards, earning entry points and support navigation.
+- https://www.revolut.com/: large benefit-led headings and focused feature sections.
+
+These are prominent references, not a verified ranking of landing-page popularity. MOTA uses original copy and existing MOTA assets, with a red, white and black palette. Competitor services and adoption numbers are not presented as MOTA features or statistics.
+
+The new hero includes an illustrative car/moto selector. Rider and driver links select the appropriate registration guide. The service grid links to ride guidance, driver onboarding, driver wallet and support. A practical journey checklist replaces the decorative impact grid. The page remains informational: it does not accept bookings, quote fares or promise emergency response.
+
+`redesign.css` isolates this layout from the existing app illustration styles. Breakpoints adapt the hero and service grid, and expand mobile navigation to tablet widths. Reduced-motion preferences remain supported. Official release URLs must still be supplied in `config.js`; pending download status is explicit.
