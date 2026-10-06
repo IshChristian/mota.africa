@@ -29,6 +29,15 @@ const renderAccountGuide = role => {
 };
 document.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => renderAccountGuide(button.dataset.role)));
 renderAccountGuide(document.querySelector('[data-role].active')?.dataset.role || 'driver');
+// Audience links select the matching guide before the browser follows its anchor.
+document.querySelectorAll('[data-account-link]').forEach(link => link.addEventListener('click', () => renderAccountGuide(link.dataset.accountLink)));
+const vehicleGuides = { moto: 'Explore a motorcycle ride for your everyday journey.', car: 'Explore a car ride for your everyday journey.' };
+document.querySelectorAll('[data-vehicle]').forEach(button => button.addEventListener('click', () => {
+  const description = vehicleGuides[button.dataset.vehicle]; if (!description) return;
+  document.querySelectorAll('[data-vehicle]').forEach(item => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+  document.getElementById('vehicle-copy').textContent = description;
+}));
+
 document.querySelectorAll('[data-map]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-map]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); }); const driver = button.dataset.map === 'driver'; document.getElementById('map-title').textContent = driver ? 'Review your ride request' : 'Choose your pickup'; document.getElementById('map-description').textContent = driver ? 'See pickup and destination details in your driver account.' : 'Set your destination and request a car or moto.'; }));
 let toastTimer;
 const showToast = message => { const toast = document.querySelector('.toast'); toast.textContent = message; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toast.hidden = true; }, 6000); };
@@ -42,7 +51,7 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.section > h2, .product-panel, .journey-layout, .money-layout, .support-grid, .tech-panel, .community-grid, .impact-grid').forEach(element => { element.classList.add('reveal-ready'); observer.observe(element); });
+  document.querySelectorAll('.section > h2, .product-panel, .journey-layout, .money-layout, .support-grid, .tech-panel, .community-grid, .impact-grid, .service-grid, .trust-layout').forEach(element => { element.classList.add('reveal-ready'); observer.observe(element); });
   reducedMotion.addEventListener('change', event => { if (event.matches) { observer.disconnect(); document.querySelectorAll('.reveal-ready').forEach(element => element.classList.add('visible')); } });
 }
 const navShell = document.querySelector('.nav-shell');
