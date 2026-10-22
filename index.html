@@ -15,7 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="redesign.css">
-    <link rel="stylesheet" href="nav-scroll.css">
+    <script src="https://kit.fontawesome.com/2ea633000b.js" crossorigin="anonymous"></script>
 </head>
 
 <body><a class="skip" href="#main">Skip to content</a>
@@ -23,12 +23,13 @@
                 alt="MOTA"></a><button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav"
             aria-label="Open navigation">☰</button>
         <nav id="primary-nav"><a href="#journey">Ride</a><a href="#drivers" data-account-link="driver">Drive</a><a
-            href="#services">Explore MOTA</a><a href="#download">Download</a>
+            href="#services">Explore MOTA</a>
             <div class="nav-dropdown"><button aria-expanded="false" aria-controls="about-menu">About us
                 <span>⌄</span></button>
                 <div id="about-menu" hidden><a href="#impact">Our purpose</a><a href="#safety">Journey checklist</a><a
                     href="#support">Support</a><a href="#questions">Questions</a></div>
                 </div>
+                <a href="#download">Download</a>
             </nav>
     </header>
     <main id="main">
@@ -36,22 +37,22 @@
             <div class="hero-copy"><span class="hero-eyebrow">MOTA / YOUR EVERYDAY MOBILITY</span>
                 <h1 id="hero-title">Your city.<br>Your ride.<br><em>Your next move.</em></h1>
                 <p>From a moto across town to a car for your day. Move with MOTA, or get ready to drive.</p>
-                <div class="hero-actions"><a class="button red" href="#journey">Explore riding <span>↗</span></a><a
+                <div class="hero-actions"><a class="button red" href="#journey">Explore riding <span></span></a><a
                         class="button hero-secondary" href="#drivers" data-account-link="driver">Become a driver
-                        <span>↗</span></a></div>
+                        <span></span></a></div>
                 <div class="hero-facts"><span>Car &amp; moto</span><span>Free rider registration</span></div>
             </div>
             <div class="hero-visual"><img src="assets/s3.png"
                     alt="Illustration of motorcycle taxis on a Kigali boulevard" fetchpriority="high" width="1672"
                     height="941"><span class="hero-image-note">MOTA concept imagery</span>
                 <div class="ride-choice">
-                    <div class="ride-choice-heading"><span>FIND YOUR WAY</span><span aria-hidden="true">↗</span></div>
+                    <div class="ride-choice-heading"><span>FIND YOUR WAY</span><span aria-hidden="true"></span></div>
                     <h2>What fits your journey?</h2>
                     <div class="vehicle-options" role="group" aria-label="Explore ride categories"><button
                             class="active" data-vehicle="moto" aria-pressed="true" aria-controls="vehicle-copy"><span
-                                aria-hidden="true">🏍</span><b>Moto</b><small>Two wheels</small></button><button
+                                aria-hidden="true"><i class="fa-solid fa-motorcycle"></i></span><b>Moto</b><small>Two wheels</small></button><button
                             data-vehicle="car" aria-pressed="false" aria-controls="vehicle-copy"><span
-                                aria-hidden="true">🚘</span><b>Car</b><small>Four wheels</small></button></div>
+                                aria-hidden="true"><i class="fa-solid fa-car-rear"></i></span><b>Car</b><small>Four wheels</small></button></div>
                     <p id="vehicle-copy" aria-live="polite">Explore a motorcycle ride for your everyday journey.</p><a
                         href="#journey" class="ride-choice-link">See how it works <span>→</span></a><small
                         class="ride-choice-note">A guide to MOTA. Availability is shown in the app.</small>
@@ -70,23 +71,23 @@
                     <h3>Where are<br>you heading?</h3>
                     <p>Explore car and moto journeys, from your pickup to your destination.</p>
                     <div class="service-route" aria-hidden="true"><i></i><span>Pickup</span><i></i><span>Your
-                            destination</span></div><span class="service-link">Meet your next ride <b>↗</b></span>
+                            destination</span></div><span class="service-link">Meet your next ride <b></b></span>
                 </a><a class="service-card service-drive" href="#drivers" data-account-link="driver"><span
                         class="service-number">02 / DRIVE</span>
                     <h3>Your experience.<br>A new chapter.</h3>
                     <p>Prepare your account, verify your documents and get ready for the road.</p>
-                    <div class="service-mark" aria-hidden="true">M<span>↗</span></div><span class="service-link">Get
-                        ready to drive <b>↗</b></span>
+                    <div class="service-mark" aria-hidden="true"></div><span class="service-link">Get
+                        ready to drive <b></b></span>
                 </a><a class="service-card service-wallet" href="#earnings"><span class="service-number">03 / DRIVER
                         WALLET</span>
                     <h3>Keep your earnings<br>in view.</h3>
                     <p>Deposits, withdrawal requests and transaction history, together.</p><span
-                        class="service-link">Explore your wallet <b>↗</b></span>
+                        class="service-link">Explore your wallet <b></b></span>
                 </a><a class="service-card service-help" href="#support"><span class="service-number">04 /
                         SUPPORT</span>
                     <h3>A clearer<br>next step.</h3>
                     <p>Find guidance for verification, your account and trip details.</p><span class="service-link">Find
-                        your guidance <b>↗</b></span>
+                        your guidance <b></b></span>
                 </a></div>
         </section>
         <section class="product section" id="experience">
@@ -112,7 +113,7 @@
                                 class="map-pin last">●</span><small>KIGALI</small></div>
                         <div class="phone-form"><b>Where are you going?</b>
                             <div class="destination">⌖ &nbsp; Enter destination <span>→</span></div>
-                            <div class="ride-types"><span>🚘<b>Car</b></span><span class="chosen">🏍<b>Moto ✓</b></span>
+                            <div class="ride-types"><span><b>Car</b></span><span class="chosen">🏍<b>Moto ✓</b></span>
                             </div>
                             <div class="phone-button">Find a ride →</div>
                         </div>
@@ -185,7 +186,7 @@
                     <article class="feature-card">
                         <div class="feature-art wallet-art">
                             <div class="wallet-preview"><small>MOTA WALLET</small><b>Your balance</b><span>Deposit ↙
-                                    &nbsp; Withdraw ↗</span></div>
+                                    &nbsp; Withdraw </span></div>
                         </div>
                         <div class="card-body">
                             <h3>Manage your earnings</h3>
@@ -205,13 +206,13 @@
                 <div class="journey-steps" role="group" aria-label="Explore the stages of a MOTA journey"><button
                         class="journey-step active" data-step="0" aria-pressed="true"><span
                             class="step-number">01</span><span><b>Make your next move</b><small>Set your pickup and
-                                destination.</small></span><span class="step-arrow">↗</span></button><button
+                                destination.</small></span><span class="step-arrow"></span></button><button
                         class="journey-step" data-step="1" aria-pressed="false"><span
                             class="step-number">02</span><span><b>Choose your ride</b><small>Car or moto. The choice is
-                                yours.</small></span><span class="step-arrow">↗</span></button><button
+                                yours.</small></span><span class="step-arrow"></span></button><button
                         class="journey-step" data-step="2" aria-pressed="false"><span
                             class="step-number">03</span><span><b>Stay connected</b><small>Follow the details of your
-                                trip.</small></span><span class="step-arrow">↗</span></button></div>
+                                trip.</small></span><span class="step-arrow"></span></button></div>
                 <div class="journey-display">
                     <div class="demo-top"><span>MOTA EXPERIENCE</span><span class="demo-count">01 / 03</span></div>
                     <div class="demo-visual" aria-hidden="true"><span class="demo-origin">⌖</span>
@@ -283,12 +284,12 @@
                         driver <span>→</span></a>
                 </div>
                 <div class="money-preview">
-                    <div class="wallet-heading"><span>MOTA DRIVER WALLET</span><span>↗</span></div>
+                    <div class="wallet-heading"><span>MOTA DRIVER WALLET</span><span></span></div>
                     <h3 id="wallet-title">Every transaction.<br>A clearer picture.</h3>
                     <div class="wallet-rows" id="wallet-rows">
                         <div><span class="transaction-icon">↙</span><span><b>Deposit</b><small>Add funds to your
                                     wallet</small></span><span class="transaction-status">Wallet</span></div>
-                        <div><span class="transaction-icon">↗</span><span><b>Withdrawal request</b><small>Follow the
+                        <div><span class="transaction-icon"></span><span><b>Withdrawal request</b><small>Follow the
                                     review and payout status</small></span><span class="transaction-status">Track</span>
                         </div>
                         <div><span class="transaction-icon">≡</span><span><b>Transaction history</b><small>Keep your
@@ -316,21 +317,21 @@
                 </div>
             </div>
             <div class="support-grid">
-                <article><span>↗</span>
+                <article>
                     <h3>Account & verification</h3>
                     <p>Phone verification, personal information and documents.</p><a href="#questions">View guidance
                         →</a>
                 </article>
-                <article><span>↗</span>
+                <article>
                     <h3>Driver wallet</h3>
                     <p>Deposit, withdraw and follow the status of your requests.</p><a href="#questions">View guidance
                         →</a>
                 </article>
-                <article><span>↗</span>
+                <article>
                     <h3>Trip support</h3>
                     <p>Ride details, feedback and support in the MOTA app.</p><a href="#questions">View guidance →</a>
                 </article>
-                <article><span>↗</span>
+                <article>
                     <h3>Safety details</h3>
                     <p>Manage emergency contacts and essential account settings.</p><a href="#questions">View guidance
                         →</a>
@@ -356,7 +357,7 @@
                 </div>
                 <div class="tech-art">
                     <div class="tech-cube one">⌖</div>
-                    <div class="tech-cube two">↗</div>
+                    <div class="tech-cube two"></div>
                     <div class="tech-cube three">M</div>
                 </div>
             </div>
@@ -394,7 +395,7 @@
                     <h2>A better journey<br>starts with<br><em>clear information.</em></h2>
                     <p>MOTA brings your account, journey details and next steps into one place. Take a moment to prepare
                         before you head out.</p><a class="button dark" href="#support">Explore support
-                        <span>↗</span></a>
+                        <span></span></a>
                 </div>
                 <div class="trust-checklist" id="safety">
                     <div class="trust-header"><span>YOUR JOURNEY CHECKLIST</span><span aria-hidden="true">✓</span></div>
@@ -440,14 +441,14 @@
                     <div>
                         <h3>Go where<br>life takes you.</h3>
                         <p>Choose a car or moto for your everyday journeys.</p><span class="community-link">Create your
-                            rider account <b>↗</b></span>
+                            rider account </span>
                     </div>
                 </a><a class="community-card community-driver" href="#drivers" data-account-link="driver"><span
                         class="community-index">02 / FOR DRIVERS</span>
                     <div>
                         <h3>Turn your next<br>move into possibility.</h3>
                         <p>Bring your experience. Get your account ready for the road.</p><span
-                            class="community-link">Explore the driver experience <b>↗</b></span>
+                            class="community-link">Explore the driver experience <b></b></span>
                     </div>
                 </a></div>
         </section>
@@ -562,11 +563,11 @@
                         href="https://tinyurl.com/androidmota"
                         aria-disabled="true"><span>◉</span>
                         <div><small>ANDROID</small><b>Download APK</b><em>123MB</em></div>
-                        <span>↗</span>
+                        <span></span>
                     </a><a id="ios-download" class="download-link unavailable" href="#download"
                         aria-disabled="true"><span>●</span>
                         <div><small>IPHONE</small><b>Get for iPhone</b><em>Official release link pending</em></div>
-                        <span>↗</span>
+                        <span></span>
                     </a></div>
             </div>
         </section>
