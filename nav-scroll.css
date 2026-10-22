@@ -1,0 +1,10 @@
+/* Download is a regular menu item; the old button is gone. */
+.nav-shell { padding-right: 28px; }
+
+/* Hide scrollbars everywhere (scrolling still works). */
+html, #primary-nav { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar, #primary-nav::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+@media (max-width: 760px) {
+  .nav-shell { padding-right: 7px; }
+}
