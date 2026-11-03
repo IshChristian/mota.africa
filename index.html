@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="webapp.css">
     <script src="https://kit.fontawesome.com/2ea633000b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -42,6 +43,8 @@
                     href="#support">Support</a><a href="#questions">Questions</a></div>
                 </div>
                 <a href="#download">Download</a>
+                <a class="nav-signin" href="https://mota.tiangroupinv.rw/login" data-webapp="/login">Sign in</a>
+                <a class="nav-app" href="https://mota.tiangroupinv.rw" data-webapp="">Open MOTA <span aria-hidden="true">→</span></a>
             </nav>
     </header>
     <main id="main">
@@ -49,9 +52,11 @@
             <div class="hero-copy"><span class="hero-eyebrow">MOTA / YOUR EVERYDAY MOBILITY</span>
                 <h1 id="hero-title">Your city.<br>Your ride.<br><em>Your next move.</em></h1>
                 <p>From a moto across town to a car for your day. Move with MOTA, or get ready to drive.</p>
-                <div class="hero-actions"><a class="button red" href="#journey">Explore riding <span></span></a><a
-                        class="button hero-secondary" href="#drivers" data-account-link="driver">Become a driver
-                        <span></span></a></div>
+                <div class="hero-actions"><a class="button red" href="https://mota.tiangroupinv.rw/register?selectedRole=passenger"
+                        data-webapp="/register?selectedRole=passenger">Book a ride <span></span></a><a
+                        class="button hero-secondary" href="https://mota.tiangroupinv.rw/register?selectedRole=driver"
+                        data-webapp="/register?selectedRole=driver">Become a driver <span></span></a></div>
+                <p class="hero-webnote">Works in your browser — no download needed. <a href="#download">Prefer the Android app?</a></p>
                 <div class="hero-facts"><span>Car &amp; moto</span><span>Free rider registration</span></div>
             </div>
             <div class="hero-visual"><img src="assets/s3.png"
@@ -568,10 +573,17 @@
         <section class="download section" id="download" aria-labelledby="download-title">
             <div>
                 <h2 id="download-title">Your next move<br>starts here.</h2>
-                <p>One app for riders and drivers. Choose your device below.</p>
+                <p>One app for riders and drivers. Open it in your browser, or install it on your phone.</p>
                 <p class="release-note" id="release-status" role="status">The Android app is ready to download. The
                     iPhone version is coming soon.</p>
                 <div class="download-options">
+                    <a id="web-app-link" class="download-link web-option" href="https://mota.tiangroupinv.rw" data-webapp="">
+                        <span class="download-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" />
+                            </svg></span>
+                        <div><small>WEB APP</small><b>Use MOTA in your browser</b><em>Any phone or computer · nothing to install</em></div>
+                    </a>
                     <a id="android-download" class="download-link"
                         href="https://expo.dev/artifacts/eas/XMDmDM4KZsMxIG164EEJPyVDQUtnFhL_fUV7bDJz3DA.apk">
                         <span class="download-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
@@ -628,13 +640,13 @@
         <div class="footer-links"><a class="footer-brand" href="#top"><img src="./assets/mota-logo.png" width="200px"
                     height="100px" alt=""></a>
             <div><b>PRODUCT</b><a href="#experience">MOTA experience</a><a href="#drivers" data-account-link="rider">For
-                    riders</a><a href="#drivers" data-account-link="driver">For drivers</a></div>
+                    riders</a><a href="#drivers" data-account-link="driver">For drivers</a><a href="https://mota.tiangroupinv.rw" data-webapp="">Open the web app</a><a href="https://mota.tiangroupinv.rw/login" data-webapp="/login">Sign in</a></div>
             <div><b>COMPANY</b><a href="#impact">Our purpose</a><a href="#technology">Technology</a><a
                     href="#network">Our network</a></div>
             <div><b>GET HELP</b><a href="#support">Support</a><a href="#questions">Questions</a><a
                     href="#download">Download</a></div>
         </div>
-        <div class="footer-bottom"><span>© <span id="year"></span> MOTA Digital. All rights reserved.</span><a
+        <div class="footer-bottom"><span>© <span id="year"></span> MOTA Digital. All rights reserved. <a href="https://tiangroupinv.rw" class="footer-parent">A Tian Group Innovation product</a></span><a
                 href="#top">● &nbsp; Back to top ↑</a></div>
         <div class="sunset" aria-hidden="true">
             <div class="sun"><img src="./assets/mota-icon-black.png" width="100px"height="100px" alt=""></div><svg viewBox="0 0 1400 220" preserveAspectRatio="none">

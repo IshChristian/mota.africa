@@ -1,0 +1,81 @@
+/* MOTA web app entry points: header buttons, hero note, browser option in Download, footer credit. */
+
+#primary-nav .nav-signin {
+  font-weight: 600;
+}
+#primary-nav .nav-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e63946;
+  color: #fff;
+  border-radius: 40px;
+  padding: 12px 20px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+#primary-nav .nav-app:hover,
+#primary-nav .nav-app:focus-visible {
+  background: #c62f3b;
+  transform: translateY(-1px);
+}
+
+/* The header holds more links now: tighten spacing before it collapses into the menu. */
+@media (max-width: 1180px) and (min-width: 761px) {
+  nav {
+    gap: 22px;
+  }
+}
+@media (max-width: 900px) and (min-width: 761px) {
+  #primary-nav .nav-signin {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  #primary-nav .nav-app {
+    justify-content: center;
+    padding: 14px 20px;
+    margin-top: 6px;
+  }
+}
+
+.hero-webnote {
+  margin-top: 18px;
+  font-size: 14px !important;
+  opacity: 0.8;
+}
+.hero-webnote a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Download: web, Android and iPhone as three equal columns; they stack on narrow screens. */
+.download-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.download-link {
+  min-width: 0;
+}
+.download-link.web-option {
+  background: #e63946;
+  color: #fff;
+}
+.download-link.web-option small,
+.download-link.web-option em {
+  color: #ffffffcc;
+}
+.download-link.web-option .download-icon svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.footer-parent {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
