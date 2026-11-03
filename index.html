@@ -20,7 +20,19 @@
 
 <body><a class="skip" href="#main">Skip to content</a>
     <header class="nav-shell"><a class="brand" href="#top" aria-label="MOTA home"><img src="assets/mota-logo-black.png"
-                alt="MOTA"></a><button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav"
+                alt="MOTA"></a>
+        <div class="lang-switch" role="group" aria-label="Language / Ururimi">
+            <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" />
+            </svg>
+            <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true"><span class="lang-long">English</span><span
+                    class="lang-short" aria-hidden="true">EN</span></button>
+            <button type="button" data-lang="rw" lang="rw" aria-label="Kinyarwanda" aria-pressed="false"><span
+                    class="lang-long">Kinyarwanda</span><span class="lang-short" aria-hidden="true">RW</span></button>
+            <p class="lang-hint" hidden><button type="button" class="lang-hint-action" data-lang-hint></button><button
+                    type="button" class="lang-hint-close" aria-label="Close">×</button></p>
+        </div><button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav"
             aria-label="Open navigation">☰</button>
         <nav id="primary-nav"><a href="#journey">Ride</a><a href="#drivers" data-account-link="driver">Drive</a><a
             href="#services">Explore MOTA</a>
@@ -553,22 +565,62 @@
             <p class="faq-empty" id="faq-empty" hidden>No matching questions. Try another word or choose all questions.
             </p>
         </section>
-        <section class="download section" id="download">
+        <section class="download section" id="download" aria-labelledby="download-title">
             <div>
-                <h2>Your next move<br>starts here.</h2>
+                <h2 id="download-title">Your next move<br>starts here.</h2>
                 <p>One app for riders and drivers. Choose your device below.</p>
-                <p class="release-note" id="release-status" role="status">Official download links are being prepared.
-                    These buttons show the current release status.</p>
-                <div class="download-options"><a id="android-download" class="download-link"
-                        href="https://tinyurl.com/androidmota"
-                        aria-disabled="true"><span>◉</span>
-                        <div><small>ANDROID</small><b>Download APK</b><em>123MB</em></div>
-                        <span></span>
-                    </a><a id="ios-download" class="download-link unavailable" href="#download"
-                        aria-disabled="true"><span>●</span>
-                        <div><small>IPHONE</small><b>Get for iPhone</b><em>Official release link pending</em></div>
-                        <span></span>
-                    </a></div>
+                <p class="release-note" id="release-status" role="status">The Android app is ready to download. The
+                    iPhone version is coming soon.</p>
+                <div class="download-options">
+                    <a id="android-download" class="download-link"
+                        href="https://expo.dev/artifacts/eas/XMDmDM4KZsMxIG164EEJPyVDQUtnFhL_fUV7bDJz3DA.apk">
+                        <span class="download-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16" />
+                            </svg></span>
+                        <div><small>ANDROID</small><b>Download APK</b><em>Version 1.0.0 · 130 MB · Android 7 or
+                                newer</em></div>
+                    </a>
+                    <a id="ios-download" class="download-link unavailable" href="#download" aria-disabled="true">
+                        <span class="download-icon" aria-hidden="true">●</span>
+                        <div><small>IPHONE</small><b>Get for iPhone</b><em>Coming soon</em></div>
+                    </a>
+                </div>
+                <p class="download-tip">The file is 130 MB. Use Wi-Fi if you can.</p>
+
+                <div class="download-guide">
+                    <article class="download-card">
+                        <span class="download-card-label">01 / BEFORE YOU INSTALL</span>
+                        <h3>Why Android shows a warning</h3>
+                        <p>MOTA is installed from this website, not the Play Store. Android shows an “unknown apps”
+                            warning for every app installed this way. It is a standard message, not a sign that
+                            something is wrong. You allow it once, for your browser only.</p>
+                    </article>
+                    <article class="download-card">
+                        <span class="download-card-label">02 / INSTALL IN 4 STEPS</span>
+                        <h3>From download to sign-up</h3>
+                        <ol class="install-steps">
+                            <li>Tap Download APK. If Chrome warns about the file, tap “Download anyway”.</li>
+                            <li>Open the file from your notifications or the Downloads folder.</li>
+                            <li>When Android asks, tap Settings and turn on “Allow from this source”.</li>
+                            <li>Tap Install, then open MOTA and sign up with your phone number.</li>
+                        </ol>
+                    </article>
+                    <article class="download-card">
+                        <span class="download-card-label">03 / CHECK THE FILE</span>
+                        <h3>Make sure it’s the real MOTA</h3>
+                        <dl class="file-facts">
+                            <div><dt>Version</dt><dd>1.0.0</dd></div>
+                            <div><dt>Package</dt><dd><code>com.tiangroupinnovation.mota</code></dd></div>
+                        </dl>
+                        <div class="checksum">
+                            <span>SHA-256 checksum</span>
+                            <code id="apk-sha256">d3549ee222c3d18d7c536b80bfb0b8b757c1e7fd63facd7f4e9f540cccab84dc</code>
+                            <button type="button" class="copy-checksum" data-copy="apk-sha256">Copy</button>
+                        </div>
+                        <p class="download-small">Compare this code with the downloaded file using a checksum app. If
+                            it doesn’t match, don’t install it.</p>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
@@ -599,6 +651,7 @@
     </footer>
     <div class="toast" role="status" hidden></div>
     <script src="config.js"></script>
+    <script src="i18n.js"></script>
     <script src="main.js"></script>
 </body>
 
