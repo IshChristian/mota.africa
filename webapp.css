@@ -79,3 +79,131 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Real app screenshots (assets/app/*.webp, captured from the MOTA web app with sample data). */
+.phone.phone-shot {
+  padding: 0;
+  overflow: hidden;
+  background: #0b0f17;
+  aspect-ratio: 390 / 844;
+}
+.phone-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+}
+.live-map {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px #d7192030;
+  aspect-ratio: 16 / 7;
+  min-height: 430px;
+  background: #eef0ee;
+}
+.live-map-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.live-map-img.active {
+  opacity: 1;
+}
+.live-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.live-badge i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px #22c55e33;
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  50% { box-shadow: 0 0 0 7px #22c55e10; }
+}
+.feature-art.app-shot {
+  background: linear-gradient(160deg, #f3f3f3, #ffd7d9);
+  place-items: end center;
+  overflow: hidden;
+}
+.feature-art.app-shot-dark {
+  background: linear-gradient(160deg, #26272b, #0b0f17);
+}
+.app-shot img {
+  align-self: end;
+  width: 64%;
+  max-width: 230px;
+  height: calc(100% - 26px);
+  object-fit: cover;
+  object-position: top;
+  border: 6px solid #18181c;
+  border-bottom: 0;
+  border-radius: 26px 26px 0 0;
+  box-shadow: 0 -10px 30px #1111111f;
+}
+.demo-visual.demo-screen {
+  height: 230px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0b0f17;
+}
+.demo-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.demo-screen img[data-pos="top"] { object-position: center 30%; }
+.demo-screen img[data-pos="center"] { object-position: center 45%; }
+.demo-screen img[data-pos="bottom"] { object-position: center 85%; }
+.transaction-icon i,
+.wallet-heading i,
+.wallet-footnote i {
+  font-size: 0.8em;
+}
+.transaction-icon i {
+  font-size: 18px;
+}
+@media (max-width: 760px) {
+  .product-art {
+    height: auto;
+    min-height: 0;
+    padding: 70px 0 56px;
+  }
+  .phone.phone-shot {
+    width: 210px;
+  }
+  .live-map {
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+  }
+  .demo-visual.demo-screen {
+    height: 200px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-badge i { animation: none; }
+  .live-map-img { transition: none; }
+}
+.app-shot img.shot-bottom {
+  object-position: bottom;
+}

@@ -43,8 +43,8 @@
                     href="#support">Support</a><a href="#questions">Questions</a></div>
                 </div>
                 <a href="#download">Download</a>
-                <a class="nav-signin" href="https://mota.tiangroupinv.rw/login" data-webapp="/login">Sign in</a>
-                <a class="nav-app" href="https://mota.tiangroupinv.rw" data-webapp="">Open MOTA <span aria-hidden="true">→</span></a>
+                <a class="nav-signin" href="https://motaapp.tiangroupinv.rw" data-webapp="/login">Sign in</a>
+                <a class="nav-app" href="https://motaapp.tiangroupinv.rw" data-webapp="">Open MOTA <span aria-hidden="true">→</span></a>
             </nav>
     </header>
     <main id="main">
@@ -52,9 +52,9 @@
             <div class="hero-copy"><span class="hero-eyebrow">MOTA / YOUR EVERYDAY MOBILITY</span>
                 <h1 id="hero-title">Your city.<br>Your ride.<br><em>Your next move.</em></h1>
                 <p>From a moto across town to a car for your day. Move with MOTA, or get ready to drive.</p>
-                <div class="hero-actions"><a class="button red" href="https://mota.tiangroupinv.rw/register?selectedRole=passenger"
+                <div class="hero-actions"><a class="button red" href="https://motaapp.tiangroupinv.rw/register?selectedRole=passenger"
                         data-webapp="/register?selectedRole=passenger">Book a ride <span></span></a><a
-                        class="button hero-secondary" href="https://mota.tiangroupinv.rw/register?selectedRole=driver"
+                        class="button hero-secondary" href="https://motaapp.tiangroupinv.rw/register?selectedRole=driver"
                         data-webapp="/register?selectedRole=driver">Become a driver <span></span></a></div>
                 <p class="hero-webnote">Works in your browser — no download needed. <a href="#download">Prefer the Android app?</a></p>
                 <div class="hero-facts"><span>Car &amp; moto</span><span>Free rider registration</span></div>
@@ -123,18 +123,9 @@
                 <div class="product-art">
                     <div class="floating-chip chip-top"><span>✓</span> Your next ride, connected</div>
                     <div class="floating-chip chip-bottom"><span>⌖</span> From pickup to destination</div>
-                    <div class="phone">
-                        <div class="phone-bar">9:41 <span>••• ▰</span></div>
-                        <div class="phone-title">Good morning <b>MOTA</b></div>
-                        <div class="mini-map"><i class="route-line"></i><span class="map-pin first">●</span><span
-                                class="map-pin last">●</span><small>KIGALI</small></div>
-                        <div class="phone-form"><b>Where are you going?</b>
-                            <div class="destination">⌖ &nbsp; Enter destination <span>→</span></div>
-                            <div class="ride-types"><span><b>Car</b></span><span class="chosen">🏍<b>Moto ✓</b></span>
-                            </div>
-                            <div class="phone-button">Find a ride →</div>
-                        </div>
-                    </div><span class="art-label">Illustrative app preview</span>
+                    <div class="phone phone-shot"><img src="assets/app/rider-home.webp" width="390" height="844" loading="lazy"
+                            alt="MOTA web app home screen: a live Kigali map showing 24 drivers nearby and a Where to? search"></div>
+                    <span class="art-label">MOTA web app · sample data</span>
                 </div>
             </div>
         </section>
@@ -145,30 +136,17 @@
             <div class="network-map">
                 <div class="map-tools"><span>Rwanda</span><span>Kigali ⌄</span><button class="map-toggle active"
                         data-map="rider" type="button">Rider view</button><button class="map-toggle" data-map="driver"
-                        type="button">Driver view</button></div><svg viewBox="0 0 800 330" role="img"
-                    aria-label="Illustrative Kigali journey map">
-                    <rect width="800" height="330" fill="#edf0ee" />
-                    <g fill="none" stroke="#fff" stroke-width="14">
-                        <path d="M0 50L800 285M0 280L800 45M125 0L245 330M580 0L520 330M0 167L800 167M390 0L390 330" />
-                    </g>
-                    <g fill="#e0e0e0">
-                        <path d="M12 5h110l-60 68zM630 3h165v87l-124-25zM7 235l94 31 76 62H0z" />
-                    </g>
-                    <g font-family="sans-serif" font-size="14" fill="#8c9690"><text x="70" y="145">Nyabugogo</text><text
-                            x="318" y="120">City Centre</text><text x="500" y="210">Kimihurura</text><text x="649"
-                            y="133">Kimironko</text></g>
-                    <path class="map-route" d="M225 249Q290 210 390 170T595 98" fill="none" stroke="#d71920"
-                        stroke-width="6" stroke-linecap="round" stroke-dasharray="10 7" />
-                    <g fill="#d71920" stroke="white" stroke-width="5">
-                        <circle cx="225" cy="249" r="13" />
-                        <circle cx="595" cy="98" r="13" />
-                        <circle cx="390" cy="170" r="8" />
-                    </g>
-                </svg>
+                        type="button">Driver view</button></div><div class="live-map">
+                    <img class="live-map-img active" data-map-img="rider" src="assets/app/live-map-rider.webp" width="1940" height="1440" loading="lazy"
+                        alt="Rider view of the live MOTA map: drivers grouped around Nyabugogo, the city centre, Kimihurura and Nyamirambo">
+                    <img class="live-map-img" data-map-img="driver" src="assets/app/live-map-driver.webp" width="2190" height="1290" loading="lazy"
+                        alt="Driver view of the live MOTA map: ride requests with fares at Nyabugogo, Kigali City Market and Kimironko Market">
+                    <span class="live-badge"><i></i>Live map</span>
+                </div>
                 <div class="map-detail" aria-live="polite"><b id="map-title">Choose your pickup</b><span
                         id="map-description">Set your destination and request a car or moto.</span></div>
             </div>
-            <p class="caption">Illustrative map · service availability is shown in the app</p>
+            <p class="caption">Screens from the MOTA web app with sample drivers and requests · Map data ©2026 Google · availability is shown in the app</p>
         </section>
         <section class="features section" id="riders">
             <h2>Designed for everyday journeys</h2>
@@ -176,35 +154,32 @@
             <div class="carousel" data-carousel>
                 <div class="card-track">
                     <article class="feature-card">
-                        <div class="feature-art route-art"><span class="route-dot">⌖</span><span class="route-chip">Your
-                                pickup → destination</span></div>
+                        <div class="feature-art app-shot"><img class="shot-bottom" src="assets/app/destination-search.webp" width="390" height="844" loading="lazy"
+                                alt="MOTA destination search with Kimironko Market suggestions"></div>
                         <div class="card-body">
                             <h3>Choose your destination</h3>
                             <p>Set your pickup and tell MOTA where you want to go.</p>
                         </div>
                     </article>
                     <article class="feature-card">
-                        <div class="feature-art bike-art"></div>
+                        <div class="feature-art app-shot"><img src="assets/app/choose-ride.webp" width="390" height="844" loading="lazy"
+                                alt="Choose a ride screen with moto and car prices to Kimironko Market"></div>
                         <div class="card-body">
                             <h3>Find the right ride</h3>
                             <p>Select a car or moto, with your choice clearly shown.</p>
                         </div>
                     </article>
                     <article class="feature-card">
-                        <div class="feature-art phone-art">
-                            <div class="small-phone"><b>Trip in progress</b><span>● ───── ●</span><small>Your journey,
-                                    in one place</small></div>
-                        </div>
+                        <div class="feature-art app-shot"><img src="assets/app/trip-live.webp" width="390" height="844" loading="lazy"
+                                alt="Trip in progress: driver on the live map, 2.7 km and 6 minutes to destination"></div>
                         <div class="card-body">
                             <h3>Follow your trip</h3>
                             <p>See trip progress and essential details from the app.</p>
                         </div>
                     </article>
                     <article class="feature-card">
-                        <div class="feature-art wallet-art">
-                            <div class="wallet-preview"><small>MOTA WALLET</small><b>Your balance</b><span>Deposit ↙
-                                    &nbsp; Withdraw </span></div>
-                        </div>
+                        <div class="feature-art app-shot app-shot-dark"><img src="assets/app/driver-wallet.webp" width="390" height="844" loading="lazy"
+                                alt="Driver wallet with balance, today's income and trip earnings"></div>
                         <div class="card-body">
                             <h3>Manage your earnings</h3>
                             <p>Drivers can review wallet activity and request withdrawals.</p>
@@ -232,9 +207,8 @@
                                 trip.</small></span><span class="step-arrow"></span></button></div>
                 <div class="journey-display">
                     <div class="demo-top"><span>MOTA EXPERIENCE</span><span class="demo-count">01 / 03</span></div>
-                    <div class="demo-visual" aria-hidden="true"><span class="demo-origin">⌖</span>
-                        <div class="demo-path"><span></span></div><span class="demo-target">◎</span>
-                    </div>
+                    <div class="demo-visual demo-screen" aria-hidden="true"><img id="demo-shot" src="assets/app/destination-search.webp"
+                            width="390" height="844" alt="" data-pos="bottom"></div>
                     <div class="demo-copy" aria-live="polite"><span id="demo-eyebrow">YOUR JOURNEY STARTS HERE</span>
                         <h3 id="demo-title">Where to next?</h3>
                         <p id="demo-description">Choose your pickup and enter your destination. Keep the important
@@ -301,18 +275,18 @@
                         driver <span>→</span></a>
                 </div>
                 <div class="money-preview">
-                    <div class="wallet-heading"><span>MOTA DRIVER WALLET</span><span></span></div>
+                    <div class="wallet-heading"><span>MOTA DRIVER WALLET</span><span aria-hidden="true"><i class="fa-solid fa-wallet"></i></span></div>
                     <h3 id="wallet-title">Every transaction.<br>A clearer picture.</h3>
                     <div class="wallet-rows" id="wallet-rows">
-                        <div><span class="transaction-icon">↙</span><span><b>Deposit</b><small>Add funds to your
+                        <div><span class="transaction-icon" aria-hidden="true"><i class="fa-solid fa-arrow-down"></i></span><span><b>Deposit</b><small>Add funds to your
                                     wallet</small></span><span class="transaction-status">Wallet</span></div>
-                        <div><span class="transaction-icon"></span><span><b>Withdrawal request</b><small>Follow the
+                        <div><span class="transaction-icon" aria-hidden="true"><i class="fa-solid fa-arrow-up"></i></span><span><b>Withdrawal request</b><small>Follow the
                                     review and payout status</small></span><span class="transaction-status">Track</span>
                         </div>
-                        <div><span class="transaction-icon">≡</span><span><b>Transaction history</b><small>Keep your
+                        <div><span class="transaction-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></span><span><b>Transaction history</b><small>Keep your
                                     activity together</small></span><span class="transaction-status">Review</span></div>
                     </div>
-                    <div class="wallet-footnote"><span>✓</span> Clear information, at every step.</div>
+                    <div class="wallet-footnote"><span aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span> Clear information, at every step.</div>
                     <p class="caption">Illustrative wallet guide</p>
                 </div>
             </div>
@@ -483,10 +457,8 @@
                         </div>
                     </article>
                     <article class="feature-card">
-                        <div class="feature-art wallet-art">
-                            <div class="wallet-preview"><small>MOTA DRIVER</small><b>Your account</b><span>Documents ·
-                                    profile · wallet</span></div>
-                        </div>
+                        <div class="feature-art app-shot app-shot-dark"><img src="assets/app/driver-documents.webp" width="390" height="844" loading="lazy"
+                                alt="Driver verification screen with approved status"></div>
                         <div class="card-body">
                             <h3>Complete your driver account</h3>
                             <p>Prepare your personal and vehicle documents for verification.</p><a class="guide-link"
@@ -494,7 +466,8 @@
                         </div>
                     </article>
                     <article class="feature-card">
-                        <div class="feature-art route-art"><span class="route-dot">⌖</span></div>
+                        <div class="feature-art app-shot"><img src="assets/app/driver-requests.webp" width="390" height="844" loading="lazy"
+                                alt="Driver nearby requests with a live map of passenger pickups"></div>
                         <div class="card-body">
                             <h3>Keep trip details close</h3>
                             <p>Pickup, destination and journey updates in one place.</p><a class="guide-link"
@@ -502,10 +475,8 @@
                         </div>
                     </article>
                     <article class="feature-card">
-                        <div class="feature-art phone-art">
-                            <div class="small-phone"><b>MOTA support</b><span>◎</span><small>Help along the way</small>
-                            </div>
-                        </div>
+                        <div class="feature-art app-shot app-shot-dark"><img src="assets/app/rider-support.webp" width="390" height="844" loading="lazy"
+                                alt="Help and support screen with call, email and support request options"></div>
                         <div class="card-body">
                             <h3>Find help when you need it</h3>
                             <p>Use the app to access account, wallet and trip support.</p><a class="guide-link"
@@ -577,7 +548,7 @@
                 <p class="release-note" id="release-status" role="status">The Android app is ready to download. The
                     iPhone version is coming soon.</p>
                 <div class="download-options">
-                    <a id="web-app-link" class="download-link web-option" href="https://mota.tiangroupinv.rw" data-webapp="">
+                    <a id="web-app-link" class="download-link web-option" href="https://motaapp.tiangroupinv.rw" data-webapp="">
                         <span class="download-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="9" />
                                 <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" />
@@ -640,7 +611,7 @@
         <div class="footer-links"><a class="footer-brand" href="#top"><img src="./assets/mota-logo.png" width="200px"
                     height="100px" alt=""></a>
             <div><b>PRODUCT</b><a href="#experience">MOTA experience</a><a href="#drivers" data-account-link="rider">For
-                    riders</a><a href="#drivers" data-account-link="driver">For drivers</a><a href="https://mota.tiangroupinv.rw" data-webapp="">Open the web app</a><a href="https://mota.tiangroupinv.rw/login" data-webapp="/login">Sign in</a></div>
+                    riders</a><a href="#drivers" data-account-link="driver">For drivers</a><a href="https://motaapp.tiangroupinv.rw" data-webapp="">Open the web app</a><a href="https://motaapp.tiangroupinv.rw/login" data-webapp="/login">Sign in</a></div>
             <div><b>COMPANY</b><a href="#impact">Our purpose</a><a href="#technology">Technology</a><a
                     href="#network">Our network</a></div>
             <div><b>GET HELP</b><a href="#support">Support</a><a href="#questions">Questions</a><a

@@ -16,7 +16,7 @@ Set the official HTTPS Android and iPhone distribution URLs in `config.js`. Unti
 
 ## Content and imagery
 
-Account copy reflects the MOTA workflow: phone verification, optional email verification, personal KYC for riders, and personal plus vehicle KYC and a 5,000 RWF registration fee for drivers. Riders have no registration fee. The map and app panels are illustrations, not coverage claims or production app screenshots. Product principles are not customer testimonials.
+Account copy reflects the MOTA workflow: phone verification, optional email verification, personal KYC for riders, and personal plus vehicle KYC and a 5,000 RWF registration fee for drivers. Riders have no registration fee. The phone, map and feature-card images in `assets/app/` are real screenshots of the MOTA web app, taken locally against a throwaway database seeded with sample drivers, riders, requests and wallet activity (so names, plates, fares and driver positions are examples, not live data or coverage claims). Map tiles are Google Maps, credited in the map caption. Product principles are not customer testimonials.
 
 `assets/hero.webp` was generated with the built-in image tool using this prompt: two red and blue commercial motorcycle taxis on a modern Kigali boulevard, premium natural automotive photography, bikes in the lower middle, skyline space above, no text or brand logos. It is concept imagery rather than a photograph of MOTA's fleet.
 

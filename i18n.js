@@ -112,7 +112,7 @@
     'Where are you going?': 'Ugiye he?',
     '⌖ Enter destination': '⌖ Andika aho ujya',
     'Find a ride →': 'Shaka urugendo →',
-    'Illustrative app preview': 'Ishusho y\'urugero rwa porogaramu',
+    'MOTA web app · sample data': 'Porogaramu ya MOTA kuri murandasi · amakuru y\'urugero',
 
     // Network map
     'Your journey, connected': 'Urugendo rwawe, ruhujwe',
@@ -125,7 +125,8 @@
     'Set your destination and request a car or moto.': 'Shyiraho aho ujya hanyuma usabe imodoka cyangwa moto.',
     'Review your ride request': 'Reba urugendo wasabwe',
     'See pickup and destination details in your driver account.': 'Reba aho bafatira n\'aho bajya muri konti yawe y\'umushoferi.',
-    'Illustrative map · service availability is shown in the app': 'Ikarita y\'urugero · aho serivisi iboneka bigaragara muri porogaramu',
+    'Screens from the MOTA web app with sample drivers and requests · Map data ©2026 Google · availability is shown in the app': 'Amashusho ya porogaramu ya MOTA afite abashoferi n\'ingendo by\'urugero · Amakuru y\'ikarita ©2026 Google · aho serivisi iboneka bigaragara muri porogaramu',
+    'Live map': 'Ikarita y\'ako kanya',
 
     // Feature cards
     'Designed for everyday journeys': 'Yakozwe ku ngendo za buri munsi',

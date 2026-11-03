@@ -53,7 +53,8 @@ document.querySelectorAll('[data-vehicle]').forEach(button => button.addEventLis
 }));
 
 let currentMap = 'rider';
-const renderMap = view => { currentMap = view; const driver = view === 'driver'; document.getElementById('map-title').textContent = T(driver ? 'Review your ride request' : 'Choose your pickup'); document.getElementById('map-description').textContent = T(driver ? 'See pickup and destination details in your driver account.' : 'Set your destination and request a car or moto.'); };
+const renderMap = view => { currentMap = view; const driver = view === 'driver';
+  document.querySelectorAll('[data-map-img]').forEach(img => img.classList.toggle('active', img.dataset.mapImg === view)); document.getElementById('map-title').textContent = T(driver ? 'Review your ride request' : 'Choose your pickup'); document.getElementById('map-description').textContent = T(driver ? 'See pickup and destination details in your driver account.' : 'Set your destination and request a car or moto.'); };
 document.querySelectorAll('[data-map]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-map]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); }); renderMap(button.dataset.map); }));
 let toastTimer;
 const showToast = message => { const toast = document.querySelector('.toast'); toast.textContent = message; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toast.hidden = true; }, 6000); };
@@ -90,12 +91,14 @@ const navShell = document.querySelector('.nav-shell');
 window.addEventListener('scroll', () => navShell?.classList.toggle('scrolled', window.scrollY > 30), { passive: true });
 const animateSwap = element => { if (!element) return; element.classList.remove('swap-enter'); void element.offsetWidth; element.classList.add('swap-enter'); };
 const journeyStages = [
-  { eyebrow: 'YOUR JOURNEY STARTS HERE', title: 'Where to next?', description: 'Choose your pickup and enter your destination. Keep the important details in one place.' },
-  { eyebrow: 'A RIDE THAT FITS YOUR DAY', title: 'Car or moto?', description: 'Choose the category that works for you. Your selection stays clearly visible before you request a ride.' },
-  { eyebrow: 'CONNECTED ALONG THE WAY', title: 'Follow your journey.', description: 'Keep your pickup, destination, and trip updates close as your journey progresses.' },
+  { shot: 'destination-search', pos: 'bottom', eyebrow: 'YOUR JOURNEY STARTS HERE', title: 'Where to next?', description: 'Choose your pickup and enter your destination. Keep the important details in one place.' },
+  { shot: 'choose-ride', pos: 'center', eyebrow: 'A RIDE THAT FITS YOUR DAY', title: 'Car or moto?', description: 'Choose the category that works for you. Your selection stays clearly visible before you request a ride.' },
+  { shot: 'trip-live', pos: 'top', eyebrow: 'CONNECTED ALONG THE WAY', title: 'Follow your journey.', description: 'Keep your pickup, destination, and trip updates close as your journey progresses.' },
 ];
 let currentStep = 0;
 const renderStage = index => { const stage = journeyStages[index]; currentStep = index;
+  const shot = document.getElementById('demo-shot');
+  if (shot) { shot.src = `assets/app/${stage.shot}.webp`; shot.dataset.pos = stage.pos; }
   document.getElementById('demo-eyebrow').textContent = T(stage.eyebrow);
   document.getElementById('demo-title').textContent = T(stage.title);
   document.getElementById('demo-description').textContent = T(stage.description);
@@ -108,9 +111,9 @@ document.querySelectorAll('[data-step]').forEach(button => button.addEventListen
   animateSwap(document.querySelector('.demo-copy'));
 }));
 const walletViews = {
-  activity: { title: 'Every transaction.\nA clearer picture.', description: 'See your wallet transactions and their status in one place.', rows: [['↙', 'Deposit', 'Add funds to your wallet', 'Wallet'], ['↗', 'Withdrawal request', 'Follow the review and payout status', 'Track'], ['≡', 'Transaction history', 'Keep your activity together', 'Review']] },
-  deposit: { title: 'Add funds.\nKeep moving.', description: 'Start a deposit in your driver wallet and follow its transaction status.', rows: [['01', 'Open your wallet', 'Choose the deposit option', 'Start'], ['02', 'Enter deposit details', 'Provide the amount and payment details', 'Details'], ['03', 'Check the status', 'Review the transaction in your wallet', 'Review']] },
-  withdraw: { title: 'Your earnings.\nYour next step.', description: 'Submit a withdrawal request and track its review and payout status in your account.', rows: [['01', 'Request a withdrawal', 'Choose an amount from your wallet', 'Request'], ['02', 'Follow the review', 'Check updates on your request', 'Status'], ['03', 'Track the payout', 'Timing depends on the payment provider', 'Payout']] },
+  activity: { title: 'Every transaction.\nA clearer picture.', description: 'See your wallet transactions and their status in one place.', rows: [['arrow-down', 'Deposit', 'Add funds to your wallet', 'Wallet'], ['arrow-up', 'Withdrawal request', 'Follow the review and payout status', 'Track'], ['clock-rotate-left', 'Transaction history', 'Keep your activity together', 'Review']] },
+  deposit: { title: 'Add funds.\nKeep moving.', description: 'Start a deposit in your driver wallet and follow its transaction status.', rows: [['wallet', 'Open your wallet', 'Choose the deposit option', 'Start'], ['mobile-screen-button', 'Enter deposit details', 'Provide the amount and payment details', 'Details'], ['circle-check', 'Check the status', 'Review the transaction in your wallet', 'Review']] },
+  withdraw: { title: 'Your earnings.\nYour next step.', description: 'Submit a withdrawal request and track its review and payout status in your account.', rows: [['hand-holding-dollar', 'Request a withdrawal', 'Choose an amount from your wallet', 'Request'], ['hourglass-half', 'Follow the review', 'Check updates on your request', 'Status'], ['building-columns', 'Track the payout', 'Timing depends on the payment provider', 'Payout']] },
 };
 let currentWallet = 'activity';
 const renderWallet = name => {
@@ -121,7 +124,8 @@ const renderWallet = name => {
   const rows = document.getElementById('wallet-rows'); rows.replaceChildren();
   view.rows.forEach(([icon, name, description, status]) => {
     const row = document.createElement('div');
-    const iconElement = document.createElement('span'); iconElement.className = 'transaction-icon'; iconElement.textContent = icon;
+    const iconElement = document.createElement('span'); iconElement.className = 'transaction-icon'; iconElement.setAttribute('aria-hidden', 'true');
+    const glyph = document.createElement('i'); glyph.className = `fa-solid fa-${icon}`; iconElement.append(glyph);
     const copy = document.createElement('span'), label = document.createElement('b'), detail = document.createElement('small'); label.textContent = T(name); detail.textContent = T(description); copy.append(label, detail);
     const badge = document.createElement('span'); badge.className = 'transaction-status'; badge.textContent = T(status);
     row.append(iconElement, copy, badge); rows.append(row);
