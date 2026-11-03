@@ -28,6 +28,17 @@
     'Support': 'Ubufasha',
     'Questions': 'Ibibazo',
     'Download': 'Kuramo',
+    'Sign in': 'Injira',
+    'A Tian Group Innovation product': 'Igicuruzwa cya Tian Group Innovation',
+    'Open MOTA': 'Fungura MOTA',
+    'Book a ride': 'Saba urugendo',
+    'Works in your browser — no download needed.': 'Ikora muri mushakisha yawe — nta kintu ukuramo.',
+    'Prefer the Android app?': 'Ukunda porogaramu ya Android?',
+    'WEB APP': 'POROGARAMU YO KURI MUSHAKISHA',
+    'Use MOTA in your browser': 'Koresha MOTA muri mushakisha',
+    'Any phone or computer · nothing to install': 'Telefoni cyangwa mudasobwa iyo ari yo yose · nta kintu ushyiramo',
+    'One app for riders and drivers. Open it in your browser, or install it on your phone.': 'Porogaramu imwe y\'abagenzi n\'abashoferi. Yifungurire muri mushakisha, cyangwa uyishyire kuri telefoni yawe.',
+    'Open the web app': 'Fungura porogaramu yo kuri mushakisha',
 
     // Hero
     'MOTA / YOUR EVERYDAY MOBILITY': 'MOTA / INGENDO ZAWE ZA BURI MUNSI',

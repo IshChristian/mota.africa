@@ -1,3 +1,8 @@
+// Web app links: the real URL is in the HTML (works without JS); config.js can point them elsewhere.
+const WEB_APP = String(window.MOTA_WEB_APP || '').replace(/\/+$/, '');
+const webAppUrl = path => WEB_APP + (path || '');
+if (WEB_APP) document.querySelectorAll('[data-webapp]').forEach(link => { link.href = webAppUrl(link.dataset.webapp); });
+
 // T() returns the current-language version of an English string (see i18n.js); English when i18n is unavailable.
 const T = text => (window.MOTA_I18N ? window.MOTA_I18N.t(text) : text);
 const menu = document.querySelector('.menu-toggle');
@@ -29,7 +34,10 @@ const renderAccountGuide = role => {
     const list = document.getElementById(id); list.replaceChildren();
     items.forEach(text => { const item = document.createElement('li'); item.textContent = T(text); list.append(item); });
   }
-  document.getElementById('join-cta').textContent = T('Start as a ' + role + ' →');
+  const joinCta = document.getElementById('join-cta');
+  joinCta.textContent = T('Start as a ' + role + ' →');
+  // Opens registration in the web app for the chosen role (the app calls riders "passenger").
+  if (WEB_APP) joinCta.href = webAppUrl('/register?selectedRole=' + (role === 'driver' ? 'driver' : 'passenger'));
 };
 document.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => renderAccountGuide(button.dataset.role)));
 renderAccountGuide(document.querySelector('[data-role].active')?.dataset.role || 'driver');

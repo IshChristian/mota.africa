@@ -39,3 +39,15 @@ console.log('Section-link menu dismissal and pending download feedback checks pa
 assert.equal(getId('faq-tools').hidden,false);assert.equal(getId('faq-count').textContent,'3 questions');questionFilters[1].click();assert.equal(questions[2].hidden,true);assert.equal(questions[0].hidden,false);assert.equal(getId('faq-count').textContent,'2 questions');assert.equal(questionFilters[1].attributes['aria-pressed'],'true');getId('faq-search').value=' vehicle ';getId('faq-search').listeners.input();assert.equal(getId('faq-empty').hidden,false);questionFilters[2].click();assert.equal(getId('faq-count').textContent,'1 question');assert.equal(questions[2].hidden,false);getId('faq-search').value='DOCUMENTS';getId('faq-search').listeners.input();assert.equal(getId('faq-count').textContent,'2 questions');getId('faq-search').value='';questionFilters[0].click();assert.equal(getId('faq-count').textContent,'3 questions');
 vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../main.js'),'utf8'),{document:doc,window:{MOTA_DOWNLOADS:{android:'https://example.com/mota.apk'},matchMedia:()=>({matches:true}),addEventListener(){}},setTimeout:()=>1,clearTimeout(){},Date});assert.match(getId('release-status').textContent,/Android app is ready to download. The iPhone version is coming soon/);assert.equal(getId('android-download').href,'https://example.com/mota.apk');
 console.log('FAQ category/search/empty states and configured release summary checks pass.');
+
+// Web app links follow config.js, and the account guide's CTA opens registration for the chosen role.
+{
+  const webLinks=[new Element({webapp:''}),new Element({webapp:'/login'})];
+  const docWeb={...doc,querySelectorAll:s=>s==='[data-webapp]'?webLinks:doc.querySelectorAll(s)};
+  vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../main.js'),'utf8'),{document:docWeb,window:{MOTA_WEB_APP:'https://app.example.rw/',matchMedia:()=>({matches:true}),addEventListener(){}},setTimeout:()=>1,clearTimeout(){},Date});
+  assert.equal(webLinks[0].href,'https://app.example.rw');
+  assert.equal(webLinks[1].href,'https://app.example.rw/login');
+  roles[1].click();assert.equal(getId('join-cta').href,'https://app.example.rw/register?selectedRole=passenger');
+  roles[0].click();assert.equal(getId('join-cta').href,'https://app.example.rw/register?selectedRole=driver');
+  console.log('Web app links and role registration CTA checks pass.');
+}
