@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mota.africa/sitemap.xml
+Sitemap: https://mota.tiangroupinv.rw/sitemap.xml
