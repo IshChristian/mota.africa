@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mota.africa/</loc>
+    <loc>https://mota.tiangroupinv.rw/</loc>
     <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mota.africa/"/>
-    <xhtml:link rel="alternate" hreflang="rw" href="https://mota.africa/?lang=rw"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mota.africa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mota.tiangroupinv.rw/"/>
+    <xhtml:link rel="alternate" hreflang="rw" href="https://mota.tiangroupinv.rw/?lang=rw"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mota.tiangroupinv.rw/"/>
   </url>
   <url>
     <loc>https://mota.africa/?lang=rw</loc>
     <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mota.africa/"/>
-    <xhtml:link rel="alternate" hreflang="rw" href="https://mota.africa/?lang=rw"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mota.africa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mota.tiangroupinv.rw/"/>
+    <xhtml:link rel="alternate" hreflang="rw" href="https://mota.tiangroupinv.rw/?lang=rw"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mota.tiangroupinv.rw/"/>
   </url>
 </urlset>
