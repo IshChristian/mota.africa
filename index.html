@@ -4,10 +4,100 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOTA — Book a Moto or Car Ride in Rwanda | Drive &amp; Earn</title>
     <meta name="description"
-        content="MOTA connects riders and drivers with a simpler way to book, follow and manage everyday journeys.">
-    <title>MOTA — The smarter way to ride and earn</title>
+        content="Book a moto or car ride in Kigali and across Rwanda with MOTA. Free rider sign-up, live trip tracking and a driver wallet. Works in your browser or on Android.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://mota.africa/">
+    <link rel="alternate" hreflang="en" href="https://mota.africa/">
+    <link rel="alternate" hreflang="rw" href="https://mota.africa/?lang=rw">
+    <link rel="alternate" hreflang="x-default" href="https://mota.africa/">
+    <meta name="theme-color" content="#d71920">
+    <meta name="application-name" content="MOTA">
+    <meta name="geo.region" content="RW">
+    <meta name="geo.placename" content="Kigali">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MOTA">
+    <meta property="og:url" content="https://mota.africa/">
+    <meta property="og:title" content="MOTA — Moto &amp; car rides in Rwanda">
+    <meta property="og:description"
+        content="Book a moto or car ride, follow your trip live, or sign up to drive and earn with MOTA. Rider registration is free.">
+    <meta property="og:image" content="https://mota.africa/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MOTA: moto and car rides in Rwanda">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="rw_RW">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MOTA — Moto &amp; car rides in Rwanda">
+    <meta name="twitter:description"
+        content="Book a moto or car ride, follow your trip live, or sign up to drive and earn with MOTA.">
+    <meta name="twitter:image" content="https://mota.africa/assets/og-image.jpg">
+
     <link rel="icon" href="assets/mota-logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preload" as="image" href="assets/s3.png" fetchpriority="high">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://mota.africa/#organization",
+          "name": "MOTA",
+          "legalName": "MOTA Digital",
+          "url": "https://mota.africa/",
+          "logo": "https://mota.africa/assets/icon-512.png",
+          "description": "MOTA is a moto and car ride app for riders and drivers in Rwanda.",
+          "areaServed": { "@type": "Country", "name": "Rwanda" },
+          "parentOrganization": { "@type": "Organization", "name": "Tian Group", "url": "https://tiangroupinv.rw" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mota.africa/#website",
+          "url": "https://mota.africa/",
+          "name": "MOTA",
+          "inLanguage": ["en", "rw"],
+          "publisher": { "@id": "https://mota.africa/#organization" }
+        },
+        {
+          "@type": "TaxiService",
+          "@id": "https://mota.africa/#service",
+          "name": "MOTA moto and car rides",
+          "serviceType": "Moto taxi and car ride booking",
+          "provider": { "@id": "https://mota.africa/#organization" },
+          "areaServed": [{ "@type": "City", "name": "Kigali" }, { "@type": "Country", "name": "Rwanda" }],
+          "availableChannel": { "@type": "ServiceChannel", "serviceUrl": "https://motaapp.tiangroupinv.rw" }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://mota.africa/#app",
+          "name": "MOTA",
+          "url": "https://motaapp.tiangroupinv.rw",
+          "applicationCategory": "TravelApplication",
+          "operatingSystem": "Web browser, Android",
+          "browserRequirements": "Requires JavaScript",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RWF", "description": "Free rider registration" },
+          "publisher": { "@id": "https://mota.africa/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://mota.africa/#faq",
+          "mainEntity": [
+            { "@type": "Question", "name": "How do I get started with MOTA?", "acceptedAnswer": { "@type": "Answer", "text": "Register, verify your phone and complete the personal documents requested in the app. Drivers also complete vehicle verification, registration payment and account review. Email verification is optional." } },
+            { "@type": "Question", "name": "Do riders pay a registration fee?", "acceptedAnswer": { "@type": "Answer", "text": "No. Riders do not pay a registration fee. The driver registration fee is 5,000 RWF." } },
+            { "@type": "Question", "name": "Which documents do drivers need?", "acceptedAnswer": { "@type": "Answer", "text": "Personal identity documents and a selfie, driving licence, transport permit, insurance, vehicle registration and technical inspection. The driver vocational card is optional. Use the app to see the full requirements and document expiry dates." } },
+            { "@type": "Question", "name": "How do driver withdrawals work?", "acceptedAnswer": { "@type": "Answer", "text": "Submit a withdrawal request from your driver wallet. Requests stay queued until queued payouts meet the provider minimum of 10,000 RWF. Track the payout status in your account; timing depends on the payment provider." } },
+            { "@type": "Question", "name": "What should I prepare before uploading documents?", "acceptedAnswer": { "@type": "Answer", "text": "Use clear, readable files, including both sides of your identity document where requested. Follow the size and format guidance in the app. Check that each upload is confirmed before submitting your verification." } },
+            { "@type": "Question", "name": "Where can I download MOTA?", "acceptedAnswer": { "@type": "Answer", "text": "Open MOTA in any browser at motaapp.tiangroupinv.rw, or install the Android app from the download section of mota.africa." } }
+          ]
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -49,9 +139,9 @@
     </header>
     <main id="main">
         <section class="hero hero-editorial" id="top" aria-labelledby="hero-title">
-            <div class="hero-copy"><span class="hero-eyebrow">MOTA / YOUR EVERYDAY MOBILITY</span>
+            <div class="hero-copy"><span class="hero-eyebrow">MOTA / MOTO &amp; CAR RIDES IN RWANDA</span>
                 <h1 id="hero-title">Your city.<br>Your ride.<br><em>Your next move.</em></h1>
-                <p>From a moto across town to a car for your day. Move with MOTA, or get ready to drive.</p>
+                <p>From a moto across Kigali to a car for your day. Book a ride with MOTA, or sign up to drive and earn.</p>
                 <div class="hero-actions"><a class="button red" href="https://motaapp.tiangroupinv.rw/register?selectedRole=passenger"
                         data-webapp="/register?selectedRole=passenger">Book a ride <span></span></a><a
                         class="button hero-secondary" href="https://motaapp.tiangroupinv.rw/register?selectedRole=driver"
@@ -608,8 +698,8 @@
         </section>
     </main>
     <footer>
-        <div class="footer-links"><a class="footer-brand" href="#top"><img src="./assets/mota-logo.png" width="200px"
-                    height="100px" alt=""></a>
+        <div class="footer-links"><a class="footer-brand" href="#top"><img src="./assets/mota-logo.png" width="200"
+                    height="100" alt="MOTA" loading="lazy"></a>
             <div><b>PRODUCT</b><a href="#experience">MOTA experience</a><a href="#drivers" data-account-link="rider">For
                     riders</a><a href="#drivers" data-account-link="driver">For drivers</a><a href="https://motaapp.tiangroupinv.rw" data-webapp="">Open the web app</a><a href="https://motaapp.tiangroupinv.rw/login" data-webapp="/login">Sign in</a></div>
             <div><b>COMPANY</b><a href="#impact">Our purpose</a><a href="#technology">Technology</a><a
@@ -620,7 +710,7 @@
         <div class="footer-bottom"><span>© <span id="year"></span> MOTA Digital. All rights reserved. <a href="https://tiangroupinv.rw" class="footer-parent">A Tian Group Innovation product</a></span><a
                 href="#top">● &nbsp; Back to top ↑</a></div>
         <div class="sunset" aria-hidden="true">
-            <div class="sun"><img src="./assets/mota-icon-black.png" width="100px"height="100px" alt=""></div><svg viewBox="0 0 1400 220" preserveAspectRatio="none">
+            <div class="sun"><img src="./assets/mota-icon-black-200.png" width="100" height="100" alt="" loading="lazy"></div><svg viewBox="0 0 1400 220" preserveAspectRatio="none">
                 <path d="M0 165L140 138 240 165 400 128 590 160 790 132 950 170 1120 140 1400 155V220H0z"
                     fill="#181818" />
                 <g fill="#161616">

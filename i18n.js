@@ -13,7 +13,8 @@
 
   const RW = {
     // Page, menu and language switch
-    'MOTA — The smarter way to ride and earn': 'MOTA — Uburyo bworoshye bwo kugenda no gukorera amafaranga',
+    'MOTA — Book a Moto or Car Ride in Rwanda | Drive & Earn': 'MOTA — Tega moto cyangwa imodoka mu Rwanda | Twara, winjize amafaranga',
+    'Book a moto or car ride in Kigali and across Rwanda with MOTA. Free rider sign-up, live trip tracking and a driver wallet. Works in your browser or on Android.': 'Tega moto cyangwa imodoka i Kigali no mu Rwanda hose ukoresheje MOTA. Kwiyandikisha ku mugenzi ni ubuntu, ukurikirana urugendo rwawe, kandi umushoferi agira ikofi. Ikora muri mushakisha cyangwa kuri Android.',
     'Skip to content': 'Jya ku bikubiyemo',
     'MOTA home': 'Ahabanza ha MOTA',
     'Open navigation': 'Fungura menu',
@@ -41,11 +42,11 @@
     'Open the web app': 'Fungura porogaramu yo kuri mushakisha',
 
     // Hero
-    'MOTA / YOUR EVERYDAY MOBILITY': 'MOTA / INGENDO ZAWE ZA BURI MUNSI',
+    'MOTA / MOTO & CAR RIDES IN RWANDA': 'MOTA / MOTO N\'IMODOKA MU RWANDA',
     'Your city.': 'Umujyi wawe.',
     'Your ride.': 'Urugendo rwawe.',
     'Your next move.': 'Intambwe ikurikira.',
-    'From a moto across town to a car for your day. Move with MOTA, or get ready to drive.': 'Kuva kuri moto ikwambutsa umujyi kugeza ku modoka y\'umunsi wawe. Genda na MOTA, cyangwa witegure gutwara.',
+    'From a moto across Kigali to a car for your day. Book a ride with MOTA, or sign up to drive and earn.': 'Kuva kuri moto ikwambutsa Kigali kugeza ku modoka y\'umunsi wawe. Tega urugendo na MOTA, cyangwa wiyandikishe utware winjize amafaranga.',
     'Explore riding': 'Menya uko ugenda',
     'Become a driver': 'Ba umushoferi',
     'Car & moto': 'Imodoka na moto',
@@ -498,6 +499,24 @@
     return preferred.some(code => /^rw\b/i.test(code || '')) ? 'rw' : 'en';
   }
 
+  // Search engines index /?lang=rw as the Kinyarwanda page (see hreflang in index.html), so that URL
+  // points its canonical at itself. Visitors who only switch language keep the English canonical.
+  const RW_URL = 'https://mota.africa/?lang=rw';
+  const seoOriginals = {};
+  function syncSeo() {
+    let fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get('lang'); } catch (e) {}
+    const rwPage = fromUrl === 'rw' && lang === 'rw';
+    [['link[rel="canonical"]', 'href', RW_URL], ['meta[property="og:url"]', 'content', RW_URL],
+     ['meta[name="description"]', 'content', null], ['meta[property="og:locale"]', 'content', 'rw_RW']].forEach(([sel, attr, rwValue]) => {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      if (!(sel in seoOriginals)) seoOriginals[sel] = el.getAttribute(attr);
+      const original = seoOriginals[sel];
+      el.setAttribute(attr, lang === 'rw' && rwValue === null ? t(original) : rwPage && rwValue ? rwValue : original);
+    });
+  }
+
   const hint = document.querySelector('.lang-hint');
   function hideHint() { if (hint) hint.hidden = true; storage.set(HINT_KEY, '1'); }
 
@@ -505,6 +524,7 @@
     lang = next === 'rw' ? 'rw' : 'en';
     document.documentElement.lang = lang;
     apply(document.body);
+    syncSeo();
     document.querySelectorAll('.lang-switch [data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
     if (save) { storage.set(STORE_KEY, lang); hideHint(); }
     listeners.forEach(fn => fn(lang));
