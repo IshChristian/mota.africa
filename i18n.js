@@ -501,7 +501,7 @@
 
   // Search engines index /?lang=rw as the Kinyarwanda page (see hreflang in index.html), so that URL
   // points its canonical at itself. Visitors who only switch language keep the English canonical.
-  const RW_URL = 'https://mota.africa/?lang=rw';
+  const RW_URL = 'https://mota.tiangroupinv.rw/?lang=rw';
   const seoOriginals = {};
   function syncSeo() {
     let fromUrl = null;
