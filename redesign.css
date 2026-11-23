@@ -830,3 +830,60 @@
 @media (max-width: 480px) {
   .download-card { padding: 22px; }
 }
+
+/* Contact: shares the trust section's two-column layout. */
+.contact {
+  background: #eee;
+}
+.contact-card {
+  min-width: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(12px, 2vw, 28px) clamp(20px, 3vw, 40px);
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 0;
+}
+.contact-link + .contact-link {
+  border-top: 1px solid #eee;
+}
+.contact-link:hover b,
+.contact-link:focus-visible b {
+  color: #c61827;
+}
+.contact-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--mota-red);
+}
+.contact-icon svg {
+  width: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+.contact-detail {
+  min-width: 0;
+}
+.contact-detail small,
+.contact-detail b {
+  display: block;
+}
+.contact-detail small {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 6px;
+}
+.contact-detail b {
+  font-size: clamp(18px, 1.6vw, 22px);
+  transition: color 0.2s ease;
+}

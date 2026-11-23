@@ -393,6 +393,16 @@
     'Check release links →': 'Reba imiyoboro yo kuramo →',
     'No matching questions. Try another word or choose all questions.': 'Nta kibazo gihuye. Gerageza irindi jambo cyangwa uhitemo ibibazo byose.',
 
+    // Contact
+    'Contact us': 'Tuvugishe',
+    'CONTACT US': 'TUVUGISHE',
+    'Need a hand?': 'Ukeneye ubufasha?',
+    'Talk to us.': 'Tuvugishe.',
+    'Questions about your account, a trip or your driver wallet? Call a support line or send us an email.': 'Ufite ikibazo kuri konti yawe, urugendo cyangwa ikofi y\'umushoferi? Hamagara umurongo w\'ubufasha cyangwa utwandikire kuri imeyili.',
+    'SUPPORT LINE 1': 'UMURONGO W\'UBUFASHA 1',
+    'SUPPORT LINE 2': 'UMURONGO W\'UBUFASHA 2',
+    'EMAIL': 'IMEYILI',
+
     // Download section
     'Your next move': 'Intambwe yawe ikurikira',
     'starts here.': 'itangirira hano.',
